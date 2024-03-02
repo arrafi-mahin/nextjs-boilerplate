@@ -25,5 +25,8 @@
     "eslint-config-next": "14.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.3.0"
-  }
+  },
+  "main": "index.js",
+  "author": "arrafi.mahin@gmail.com",
+  "license": "MIT"
 }
