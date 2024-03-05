@@ -1,4 +1,3 @@
-
 /**
  * Input Component
  *
@@ -17,39 +16,42 @@
  *
  * @returns {ReactNode} The rendered input component.
  */
-import React, { useRef } from 'react';
-import searchIcon from '../../../assets/Icons/search.svg';
-import plus from '../../../assets/Icons/plus.svg';
-import minus from '../../../assets/Icons/minus.svg';
+import React, { useRef } from "react";
+import searchIcon from "../../../../public/assets/icons/search.svg";
+import plus from "../../../../public/assets/icons/plus.svg";
+import minus from "../../../../public/assets/icons/minus.svg";
+import Image from "next/image";
 const styles = {
-  primary: 'border border-label rounded-full text-primary2 placeholder-label text-sm leading-[1.375rem] font-nunito focus:border-primary4',
-  secondary: 'border border-[#001E174d] rounded-full text-primary placeholder-primary text-sm leading-[1.375rem] font-nunito focus:border-primary4'
+  primary:
+    "border border-label rounded-full text-primary2 placeholder-label text-sm leading-[1.375rem] font-nunito focus:border-primary4",
+  secondary:
+    "border border-[#001E174d] rounded-full text-primary placeholder-primary text-sm leading-[1.375rem] font-nunito focus:border-primary4",
 };
 const labelStyle = {
-  primary: 'text-primary1',
-  secondary: 'text-primary',
-}
+  primary: "text-primary1",
+  secondary: "text-primary",
+};
 const inputSize = {
-  lg: 'py-3',
-  md: 'py-2',
-  sm: 'py-1'
-}
+  lg: "py-3",
+  md: "py-2",
+  sm: "py-1",
+};
 const Input = ({
-  style = 'primary',
-  className = '',
-  id = '',
-  name = '',
+  style = "primary",
+  className = "",
+  id = "",
+  name = "",
   value,
   onChange,
-  type = 'text',
+  type = "text",
   onBlur,
   rest = {},
-  placeholder = '',
-  size = 'md',
-  label = '',
+  placeholder = "",
+  size = "md",
+  label = "",
   error,
   min = 0,
-  max
+  max,
 }) => {
   const quantityRef = useRef();
   const decrementHandler = () => {
@@ -57,15 +59,17 @@ const Input = ({
     if (current > 0) {
       quantityRef.current.value = current - 1;
     }
-  }
+  };
   const incrementHandler = () => {
     quantityRef.current.value = Number(quantityRef.current.value) + 1;
-  }
+  };
 
-  if (type === 'search') {
+  if (type === "search") {
     return (
-      <div className={`flex gap-2 items-center border px-4 border-label rounded-full ${className} ${inputSize[size]}`}>
-        <img className={size === 'lg' ? 'h-6 w-6' : 'h-4 w-4'} src={searchIcon} alt="" />
+      <div
+        className={`flex gap-2 items-center border px-4 border-label rounded-full ${className} ${inputSize[size]}`}
+      >
+        {/* <Image className={size === 'lg' ? 'h-6 w-6' : 'h-4 w-4'} src={searchIcon} alt="" /> */}
         <input
           className={`text-label  focus:outline-none  `}
           id={id}
@@ -79,13 +83,24 @@ const Input = ({
         />
       </div>
     );
-  } else if (type === 'quantity') {
+  } else if (type === "quantity") {
     return (
-      <div className='flex flex-col'>
-        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}</label>
+      <div className="flex flex-col">
+        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
+          {label}
+        </label>
 
-        <div className={`${styles[style]} ${className} ${inputSize[size]} px-6 ${error ? 'border-danger' : ''} flex items-center justify-between`} >
-          <img className='cursor-pointer' onClick={() => decrementHandler(value)} src={minus} alt="" />
+        <div
+          className={`${styles[style]} ${className} ${inputSize[size]} px-6 ${
+            error ? "border-danger" : ""
+          } flex items-center justify-between`}
+        >
+          <Image
+            className="cursor-pointer"
+            onClick={() => decrementHandler(value)}
+            src={minus}
+            alt=""
+          />
           <input
             className={` focus:outline-none w-full text-center`}
             ref={quantityRef}
@@ -94,22 +109,31 @@ const Input = ({
             value={value}
             onChange={onChange}
             onBlur={onBlur}
-            type={'number'}
+            type={"number"}
             min={min}
             max={max}
             placeholder={placeholder}
             {...rest}
           />
-          <img className='cursor-pointer' onClick={() => incrementHandler(value)} src={plus} alt="" />
+          <Image
+            className="cursor-pointer"
+            onClick={() => incrementHandler(value)}
+            src={plus}
+            alt=""
+          />
         </div>
       </div>
-    )
+    );
   } else {
     return (
-      <div className='flex flex-col'>
-        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>{label}</label>
+      <div className="flex flex-col">
+        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
+          {label}
+        </label>
         <input
-          className={`${styles[style]} ${className} ${inputSize[size]} focus:outline-none px-6 ${error ? 'border-danger' : ''}`}
+          className={`${styles[style]} ${className} ${
+            inputSize[size]
+          } focus:outline-none px-6 ${error ? "border-danger" : ""}`}
           id={id}
           name={name}
           value={value}
@@ -127,4 +151,3 @@ const Input = ({
 };
 
 export default Input;
-
