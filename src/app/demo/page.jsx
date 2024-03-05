@@ -3,9 +3,12 @@ import Button from "@/components/Shared/Button/Button";
 import Dropdown from "@/components/Shared/Dropdown/Dropdown";
 import Input from "@/components/Shared/Inputs/Input";
 import Switch from "@/components/Shared/Switch/Switch";
-import React from "react";
-
 export default function page() {
+  const handleSwitchChange = (id, isChecked) => {
+    console.log(
+      `Switch with ID ${id} is now ${isChecked ? "checked" : "unchecked"}`
+    );
+  };
   return (
     <>
       <div className="px-5">
@@ -109,7 +112,7 @@ export default function page() {
             id="switch"
             label="Switch"
             defaultChecked={true}
-            onChange={() => {}}
+            onChange={handleSwitchChange}
           />
         </div>
       </div>

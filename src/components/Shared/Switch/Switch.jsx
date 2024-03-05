@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import "./style.css";
 /**
  * Switch component for creating a toggle switch.
  *
@@ -7,36 +8,46 @@ import React, { useState } from 'react';
  * @param {function} onChange - Callback function to handle switch state changes.
  */
 
-export default function Switch({ id, label, defaultChecked = false, onChange }) {
-    const [isChecked, setIsChecked] = useState(defaultChecked);
+export default function Switch({
+  id,
+  label,
+  defaultChecked = false,
+  onChange,
+}) {
+  const [isChecked, setIsChecked] = useState(defaultChecked);
 
-    const handleSwitchChange = (e) => {
-        const newChecked = e.target.checked;
-        setIsChecked(newChecked);
-        onChange(id, newChecked);
-    };
+  const handleSwitchChange = (e) => {
+    const newChecked = e.target.checked;
+    setIsChecked(newChecked);
+    onChange(id, newChecked);
+  };
 
-    return (
-        <div>
-            <div className="max-w-max min-w-[14.5rem]">
-                <div className="flex justify-between items-center">
-                    <p className="tex-base leading-6 font-normal text-blackSecondary">{label ? label : ''}</p>
-                    <div className="w-[3.25rem] h-8 relative">
-                        <input
-                            type="checkbox"
-                            className="checkbox w-0 h-0 opacity-0 absolute"
-                            id={id}
-                            onChange={handleSwitchChange}
-                            checked={isChecked}
-                        />
-                        <label className="switch w-full h-full block border-2 border-[#1d1b201f] rounded-[6.25rem] cursor-pointer transition-all duration-300 ease-out" htmlFor={id}>
-                            <span className="slider">{ }</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
+  return (
+    <div>
+      <div className="max-w-max min-w-[14.5rem]">
+        <div className="flex justify-between items-center">
+          <p className="tex-base leading-6 font-normal text-blackSecondary">
+            {label ? label : ""}
+          </p>
+          <div className="w-[3.25rem] h-8 relative">
+            <input
+              type="checkbox"
+              className="checkbox w-0 h-0 opacity-0 absolute"
+              id={id}
+              onChange={handleSwitchChange}
+              checked={isChecked}
+            />
+            <label
+              className="switch w-full h-full block border-2 border-[#1d1b201f] rounded-[6.25rem] cursor-pointer transition-all duration-300 ease-out"
+              htmlFor={id}
+            >
+              <span className="slider">{}</span>
+            </label>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
 
 /*
