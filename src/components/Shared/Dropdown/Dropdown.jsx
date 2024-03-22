@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react";
-import arrow from "../../../../public/assets/icons/arrow-down.svg";
-import Image from "next/image";
+'use client'
+import { useEffect, useState, useRef } from "react";
+import Arrow from "@/assets/icons/arrow-down.svg";
 
 const Dropdown = ({
   data = [],
@@ -75,11 +75,7 @@ const Dropdown = ({
           <p className="text-primary2">
             {selected ? selected.name : placeholder}
           </p>
-          <Image
-            className="bg-primary1 rounded-full ml-2 py-1 px-1"
-            src={arrow}
-            alt=""
-          />
+          <Arrow />
         </div>
         <ul
           className={`${

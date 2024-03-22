@@ -16,25 +16,21 @@
  *
  * @returns {ReactNode} The rendered input component.
  */
-import React, { useRef } from "react";
-import searchIcon from "../../../../public/assets/icons/search.svg";
-import plus from "../../../../public/assets/icons/plus.svg";
-import minus from "../../../../public/assets/icons/minus.svg";
-import Image from "next/image";
+
 const styles = {
-  primary:
-    "border border-label rounded-full text-primary2 placeholder-label text-sm leading-[1.375rem] font-nunito focus:border-primary4",
-  secondary:
-    "border border-[#001E174d] rounded-full text-primary placeholder-primary text-sm leading-[1.375rem] font-nunito focus:border-primary4",
+  primary: "",
+  secondary: "",
+    custom: "",
 };
 const labelStyle = {
-  primary: "text-primary1",
-  secondary: "text-primary",
+  primary: "",
+  secondary: "",
+  custom: "",
 };
 const inputSize = {
-  lg: "py-3",
-  md: "py-2",
-  sm: "py-1",
+  lg: "",
+  md: "",
+  sm: "",
 };
 const Input = ({
   style = "primary",
@@ -48,88 +44,17 @@ const Input = ({
   rest = {},
   placeholder = "",
   size = "md",
-  label = "",
+  label,
   error,
   min = 0,
   max,
 }) => {
-  const quantityRef = useRef();
-  const decrementHandler = () => {
-    const current = Number(quantityRef.current.value);
-    if (current > 0) {
-      quantityRef.current.value = current - 1;
-    }
-  };
-  const incrementHandler = () => {
-    quantityRef.current.value = Number(quantityRef.current.value) + 1;
-  };
 
-  if (type === "search") {
-    return (
-      <div
-        className={`flex gap-2 items-center border px-4 border-label rounded-full ${className} ${inputSize[size]}`}
-      >
-        {/* <Image className={size === 'lg' ? 'h-6 w-6' : 'h-4 w-4'} src={searchIcon} alt="" /> */}
-        <input
-          className={`text-label  focus:outline-none  `}
-          id={id}
-          name={name}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          type={type}
-          placeholder={placeholder}
-          {...rest}
-        />
-      </div>
-    );
-  } else if (type === "quantity") {
     return (
       <div className="flex flex-col">
-        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
+        {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
           {label}
-        </label>
-
-        <div
-          className={`${styles[style]} ${className} ${inputSize[size]} px-6 ${
-            error ? "border-danger" : ""
-          } flex items-center justify-between`}
-        >
-          <Image
-            className="cursor-pointer"
-            onClick={() => decrementHandler(value)}
-            src={minus}
-            alt=""
-          />
-          <input
-            className={` focus:outline-none w-full text-center`}
-            ref={quantityRef}
-            id={id}
-            name={name}
-            value={value}
-            onChange={onChange}
-            onBlur={onBlur}
-            type={"number"}
-            min={min}
-            max={max}
-            placeholder={placeholder}
-            {...rest}
-          />
-          <Image
-            className="cursor-pointer"
-            onClick={() => incrementHandler(value)}
-            src={plus}
-            alt=""
-          />
-        </div>
-      </div>
-    );
-  } else {
-    return (
-      <div className="flex flex-col">
-        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
-          {label}
-        </label>
+        </label>}
         <input
           className={`${styles[style]} ${className} ${
             inputSize[size]
@@ -147,7 +72,6 @@ const Input = ({
         />
       </div>
     );
-  }
 };
 
 export default Input;

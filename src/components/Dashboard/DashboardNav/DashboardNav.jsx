@@ -1,6 +1,6 @@
 import React from 'react';
-import Menu from '../../assets/Icons/Menu.svg?react';
-import Cross from '../../assets/Icons/cancel.svg?react';
+import Menu from '@/assets/icons/Menu.svg';
+import Cross from '@/assets/icons/cancel.svg';
 const DashboardNav = ({sidebarHandler, isOpen}) => {
     // const [isVisible, setIsVisible] = useState(false);
     return (

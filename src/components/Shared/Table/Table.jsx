@@ -1,6 +1,5 @@
-import React from "react";
 import TablePagination from "./TablePagination";
-import SortIcon from "../../../assets/Icons/Sort-Icon.svg";
+import SortIcon from "@/assets/icons/Sort-Icon.svg";
 import Image from "next/image";
 
 /**
