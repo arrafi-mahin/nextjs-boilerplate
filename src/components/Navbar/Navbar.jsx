@@ -25,7 +25,7 @@ const Navbar = () => {
           <button
             onClick={() => {setIsActive(true); console.log('object')}}
             type="button"
-            className="inline-flex items-center p-2 w-10 h-10 justify-center bg-red-500 md:hidden"
+            className="inline-flex items-center p-2 w-10 h-10 justify-center  md:hidden"
           >
             <svg
               className="w-5 h-5"

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 /**
  * Button Component
@@ -14,25 +14,33 @@ import React from 'react';
  * @returns {ReactNode} The rendered button component.
  */
 
+// Example
+{
+  /* <Button type="button" onClick={() => { console.log("Clicked"); }}style="secondary">hello world</Button>; */
+}
+
 const styles = {
-  primary: 'bg-primary2 text-white py-3 px-4 w-full font-nunito font-bold text-base',
-  secondary: 'bg-primary2 text-white py-2 px-4 w-full font-nunito font-bold',
-  small: 'bg-primary2 text-white py-1 px-4 w-full font-nunito font-normal',
-  outline: 'border border-primary rounded-full py-2 px-4 text-base font-semibold text-primary font-nunito w-full',
+  primary:
+    "bg-green-500 text-white py-3 px-4 w-full font-nunito font-bold text-base",
+  secondary: "bg-red-500 text-white py-2 px-4 w-full font-nunito font-bold",
+  outline:
+    "border border-primary rounded-full py-2 px-4 text-base font-semibold text-primary font-nunito w-full",
+  custom: "",
 };
 
 const Button = ({
-  style = 'primary', // Default style to 'primary'
-  className = '',
-  type = 'button',
-  children = '',
+  style = "primary", // Default style to 'primary'
+  className = "",
+  type = "button",
+  children = "",
   onClick,
   disabled = false,
 }) => {
   return (
     <button
       className={`${styles[style]} ${className}`}
-      onClick={onClick} type={type}
+      onClick={onClick}
+      type={type}
       disabled={disabled}
     >
       {children}

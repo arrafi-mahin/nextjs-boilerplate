@@ -1,7 +1,7 @@
 
 export default function Home() {
   return (
-    <main className="">
+    <main className="container mx-auto text-center">
       Home page
     </main>
   );

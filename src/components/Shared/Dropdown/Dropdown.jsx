@@ -1,4 +1,29 @@
-'use client'
+"use client"
+
+/**
+ * Dropdown component
+ * @param {object} props - component properties
+ * @param {array} props.data - array of objects with id, name, and value properties
+ * @param {function} props.onChange - function to be called when an option is selected
+ * @param {string} props.placeholder - placeholder text for the dropdown
+ * @param {string} props.label - label text for the dropdown
+ * @param {boolean} props.other - boolean indicating whether an "Other" option should be included
+ * @param {object} props.error - error object with message property
+ * @returns {JSX.Element} - dropdown component
+ */
+
+// Example
+{/* <Dropdown
+  label="Select Menu"
+  data={[
+    { id: 1, name: "Select 1", value: "select" },
+    { id: 2, name: "Select 2", value: "select2" },
+    { id: 3, name: "Select 3", value: "select3" },
+  ]}
+  onChange={(e) => console.log(e)}
+  className
+/>; */}
+
 import { useEffect, useState, useRef } from "react";
 import Arrow from "@/assets/icons/arrow-down.svg";
 
@@ -75,7 +100,7 @@ const Dropdown = ({
           <p className="text-primary2">
             {selected ? selected.name : placeholder}
           </p>
-          <Arrow />
+          <Arrow className="fill-black" />
         </div>
         <ul
           className={`${
@@ -88,9 +113,9 @@ const Dropdown = ({
               key={item.id}
               className={`${
                 selected?.id === item?.id
-                  ? "text-white bg-primary2"
+                  ? "text-white bg-green-800"
                   : "text-primary1 bg-white"
-              }  py-2 px-6  hover:bg-primary2 hover:text-white cursor-pointer `}
+              }  py-2 px-6  hover:bg-green-800 hover:text-white cursor-pointer `}
             >
               {item.name}
             </li>

@@ -16,11 +16,24 @@
  *
  * @returns {ReactNode} The rendered input component.
  */
+// Example
+
+{/* <Input
+  style="primary"
+  size="lg"
+  label="Input Filed large"
+  type="text"
+  onBlur={()=>{}}
+  onChange={()=>{}}
+  value={''}
+  placeholder="Enter Text"
+  rest={{}}
+/>; */}
 
 const styles = {
   primary: "",
   secondary: "",
-    custom: "",
+  custom: "",
 };
 const labelStyle = {
   primary: "",
@@ -49,29 +62,30 @@ const Input = ({
   min = 0,
   max,
 }) => {
-
-    return (
-      <div className="flex flex-col">
-        {label && <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
+  return (
+    <div className="flex flex-col">
+      {label && (
+        <label className={`${labelStyle[style]} mb-1`} htmlFor={id}>
           {label}
-        </label>}
-        <input
-          className={`${styles[style]} ${className} ${
-            inputSize[size]
-          } focus:outline-none px-6 ${error ? "border-danger" : ""}`}
-          id={id}
-          name={name}
-          value={value}
-          onChange={onChange}
-          onBlur={onBlur}
-          type={type}
-          min={min}
-          max={max}
-          placeholder={placeholder}
-          {...rest}
-        />
-      </div>
-    );
+        </label>
+      )}
+      <input
+        className={`${styles[style]} ${className} ${
+          inputSize[size]
+        } focus:outline-none px-6 ${error ? "border-danger" : ""}`}
+        id={id}
+        name={name}
+        value={value}
+        onChange={onChange}
+        onBlur={onBlur}
+        type={type}
+        min={min}
+        max={max}
+        placeholder={placeholder}
+        {...rest}
+      />
+    </div>
+  );
 };
 
 export default Input;
