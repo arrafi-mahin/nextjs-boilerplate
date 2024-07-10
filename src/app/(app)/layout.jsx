@@ -14,6 +14,9 @@ export default function RootLayout({ children }) {
   return (
     <>
       <html lang="en">
+        <head>
+          <link rel="icon" type="image/x-icon" href="/logo.svg"></link>
+        </head>
         <body className={`${inter.className} flex flex-col justify-between min-h-screen`}>
           <div className="">
             <Navbar />

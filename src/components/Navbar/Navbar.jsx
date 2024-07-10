@@ -15,7 +15,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="bg-white border-gray-200 border-b sticky top-0">
-        <div className="container flex flex-wrap items-center justify-between mx-auto p-4">
+        <div className="container flex flex-wrap items-center justify-between mx-auto py-4">
           <Link href="/" className="flex items-center">
             {/* <img src={logo} className="h-8 mr-3" alt="Flowbite Logo" /> */}
             <span className="self-center text-2xl font-semibold whitespace-nowraptext-black">
@@ -23,7 +23,7 @@ const Navbar = () => {
             </span>
           </Link>
           <button
-            onClick={() => {setIsActive(true); console.log('object')}}
+            onClick={() => { setIsActive(true); console.log('object') }}
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center  md:hidden"
           >
@@ -68,20 +68,18 @@ const Navbar = () => {
 
       <div className="">
         <div
-          className={`${
-            isActive ? "left-0" : "-left-screen"
-          } top-0 right-0 bottom-0 fixed z-10 bg-[#000000b4] shadow-lg `}
+          className={`${isActive ? "left-0" : "-left-screen"
+            } top-0 right-0 bottom-0 fixed z-10 bg-[#000000b4] shadow-lg `}
         >
           {/* <img onClick={()=> setIsActive(false)} className='h-6 absolute right-6 top-6' src={cancel} alt="" /> */}
-         {isActive && <Cancel 
+          {isActive && <Cancel
             onClick={() => setIsActive(false)}
             className="fill-white h-6 w-6 absolute right-6 top-6"
           />}
         </div>
         <ul
-          className={`fixed bg-white font-medium flex flex-col gap-4 z-20 py-20 px-10 bottom-0  top-0 min-w-[50vw] max-w-[80vw] duration-500 ease-in-out ${
-            isActive ? "left-0" : "left-[-100vw]"
-          }`}
+          className={`fixed bg-white font-medium flex flex-col gap-4 z-20 py-20 px-10 bottom-0  top-0 min-w-[50vw] max-w-[80vw] duration-500 ease-in-out ${isActive ? "left-0" : "left-[-100vw]"
+            }`}
         >
           <li>
             <Link className="" href={"/"}>

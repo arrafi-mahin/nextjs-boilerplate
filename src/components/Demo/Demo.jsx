@@ -6,6 +6,14 @@ import Input from "@/components/Shared/Inputs/Input";
 import Modal from "@/components/Shared/Modal/Modal";
 import Switch from "@/components/Shared/Switch/Switch";
 import { useState } from "react";
+import Tabs from '../Shared/Tabs/Tabs';
+const tabs = [
+    { id: "world", label: "World" },
+    { id: "ny", label: "N.Y." },
+    { id: "business", label: "Business" },
+    { id: "arts", label: "Arts" },
+    { id: "science", label: "Science" },
+];
 export default function Demo() {
     const [modal1, setModal1] = useState(false);
     const [switchBtn, setSwitchBtn] = useState(false);
@@ -84,6 +92,7 @@ export default function Demo() {
                     onChange={handleSwitchChange}
                 />
                 <Button style="custom" className="w-fit h-fit rounded-full bg-green-500 text-white px-4 py-2" onClick={() => setModal1(true)}>Modal 1</Button>
+                <Tabs data={tabs} click={(e) => console.log(e)} />
             </div>
             <Modal show={modal1} onClose={() => setModal1(false)}><h2>Hello  World</h2></Modal>
         </div>
