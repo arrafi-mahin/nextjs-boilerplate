@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^2.1.2",
     "@svgr/webpack": "^8.1.0",
     "axios": "^1.6.7",
     "formik": "^2.4.5",

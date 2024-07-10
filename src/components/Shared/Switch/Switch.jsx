@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import "./style.css";
+'use client'
+import { Switch } from "@headlessui/react";
 /**
  * Switch component for creating a toggle switch.
  *
@@ -8,58 +8,24 @@ import "./style.css";
  * @param {function} onChange - Callback function to handle switch state changes.
  */
 
-export default function Switch({
-  id,
-  label,
-  defaultChecked = false,
-  onChange,
+export default function SwitchButton({
+  checked = false,
+  onChange = () => { },
 }) {
-  const [isChecked, setIsChecked] = useState(defaultChecked);
 
-  const handleSwitchChange = (e) => {
-    const newChecked = e.target.checked;
-    setIsChecked(newChecked);
-    onChange(id, newChecked);
-  };
 
   return (
-    <div>
-      <div className="max-w-max min-w-[14.5rem]">
-        <div className="flex justify-between items-center">
-          <p className="tex-base leading-6 font-normal text-blackSecondary">
-            {label ? label : ""}
-          </p>
-          <div className="w-[3.25rem] h-8 relative">
-            <input
-              type="checkbox"
-              className="checkbox w-0 h-0 opacity-0 absolute"
-              id={id}
-              onChange={handleSwitchChange}
-              checked={isChecked}
-            />
-            <label
-              className="switch w-full h-full block border-2 border-[#1d1b201f] rounded-[6.25rem] cursor-pointer transition-all duration-300 ease-out"
-              htmlFor={id}
-            >
-              <span className="slider">{}</span>
-            </label>
-          </div>
-        </div>
-      </div>
-    </div>
+    <Switch
+      checked={checked}
+      onChange={onChange}
+      className="group relative flex h-7 w-14 cursor-pointer rounded-full bg-[#28262F] p-1 border-[#7A738F] transition-colors duration-200 ease-in-out focus:outline-none data-[focus]:outline-1 data-[focus]:outline-white data-[checked]:bg-[#0235FF]"
+    >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none inline-block size-5 translate-x-0 rounded-full bg-white ring-0 shadow-lg transition duration-200 ease-in-out group-data-[checked]:translate-x-7"
+      />
+    </Switch>
   );
 }
 
-/*
-use example: 
-const handleSwitchChange = (id, isChecked) => {
-    console.log(`Switch with ID ${id} is now ${isChecked ? 'checked' : 'unchecked'}`);
-  };
 
-  return (
-    <div>
-      <Switch id="exampleSwitch" defaultChecked={true} onChange={handleSwitchChange} />
-    </div>
-  );
-
-  */

@@ -29,7 +29,7 @@ import Arrow from "@/assets/icons/arrow-down.svg";
 
 const Dropdown = ({
   data = [],
-  onChange = () => {},
+  onChange = () => { },
   error,
   placeholder = "Select",
   label = "label",
@@ -93,9 +93,8 @@ const Dropdown = ({
       <div className="relative" ref={dropdownRef}>
         <div
           onClick={toggleDropdown}
-          className={`py-2 pl-6 pr-4 rounded-full border ${
-            error ? "border-danger" : "border-label"
-          } flex justify-between items-center cursor-pointer`}
+          className={`py-2 pl-6 pr-4 rounded-full border ${error ? "border-danger" : "border-label"
+            } flex justify-between items-center cursor-pointer`}
         >
           <p className="text-primary2">
             {selected ? selected.name : placeholder}
@@ -103,19 +102,17 @@ const Dropdown = ({
           <Arrow className="fill-black" />
         </div>
         <ul
-          className={`${
-            isOpen ? "" : "hidden"
-          } border border-label absolute w-full max-h-[13rem] rounded-lg mt-1 overflow-y-auto`}
+          className={`${isOpen ? "" : "hidden"
+            } border border-label absolute w-full max-h-[13rem] rounded-lg mt-1 overflow-y-auto`}
         >
           {data?.map((item) => (
             <li
               onClick={() => handleSelect(item)}
               key={item.id}
-              className={`${
-                selected?.id === item?.id
+              className={`${selected?.id === item?.id
                   ? "text-white bg-green-800"
                   : "text-primary1 bg-white"
-              }  py-2 px-6  hover:bg-green-800 hover:text-white cursor-pointer `}
+                }  py-2 px-6  hover:bg-green-800 hover:text-white cursor-pointer text-nowrap`}
             >
               {item.name}
             </li>
