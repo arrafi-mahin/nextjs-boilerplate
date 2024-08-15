@@ -33,7 +33,7 @@ const Dropdown = ({
   error,
   placeholder = "Select",
   label = "label",
-  other = true,
+  other = false
 }) => {
   const [selected, setSelected] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +53,7 @@ const Dropdown = ({
   useEffect(() => {
     setIsOpen(false);
     onChange(selected);
-  }, [selected]);
+  }, [selected, onChange]);
 
   useEffect(() => {
     // Close the dropdown when the user clicks outside of it
@@ -110,14 +110,14 @@ const Dropdown = ({
               onClick={() => handleSelect(item)}
               key={item.id}
               className={`${selected?.id === item?.id
-                  ? "text-white bg-green-800"
-                  : "text-primary1 bg-white"
+                ? "text-white bg-green-800"
+                : "text-primary1 bg-white"
                 }  py-2 px-6  hover:bg-green-800 hover:text-white cursor-pointer text-nowrap`}
             >
               {item.name}
             </li>
           ))}
-          {/* {other && !isClicked ? (
+          {other && !isClicked ? (
             <li
               onClick={() => setClicked(true)}
               className={` text-primary1 bg-white  py-2 px-6  hover:bg-primary2 hover:text-white cursor-pointer `}
@@ -135,7 +135,7 @@ const Dropdown = ({
                 id=""
               />
             </form>
-          )} */}
+          )}
         </ul>
       </div>
     </div>

@@ -1,3 +1,47 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": ["eslint:recommended", "next/core-web-vitals"],
+  "ignorePatterns": [
+    "**/__tests__/**",
+    "**/*.test.js",
+    "**/*.test.jsx",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ],
+  "rules": {
+    "no-unused-vars": [
+      "warn",
+      {
+        "vars": "all",
+        "args": "after-used",
+        "ignoreRestSiblings": true,
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "document",
+        "property": "getElementById",
+        "message": "Use React refs or state management instead of directly accessing DOM elements."
+      },
+      {
+        "object": "document",
+        "property": "querySelector",
+        "message": "Use React refs or state management instead of directly accessing DOM elements."
+      },
+      {
+        "object": "document",
+        "property": "querySelectorAll",
+        "message": "Use React refs or state management instead of directly accessing DOM elements."
+      }
+    ],
+    "react/no-danger": "error",
+    "jsx-a11y/no-autofocus": [
+      "error",
+      {
+        "ignoreNonDOM": true
+      }
+    ]
+  }
 }
